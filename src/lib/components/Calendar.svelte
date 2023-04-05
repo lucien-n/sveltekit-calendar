@@ -5,6 +5,6 @@
 	export let month: number;
 </script>
 
-<section id="calendar" class="mx-auto h-4/5 w-4/5">
+<section id="calendar" class="mx-auto h-full w-full lg:h-4/5 lg:w-4/5">
 	<Month {year} {month} />
 </section>
