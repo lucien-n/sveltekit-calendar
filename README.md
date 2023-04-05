@@ -26,5 +26,5 @@
 - `npm install`
 - `npm run dev`
 
-[SvelteKit.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[SvelteKit.dev]: https://img.shields.io/badge/SvelteKit-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
 [SvelteKit-url]: https://kit.svelte.dev/
