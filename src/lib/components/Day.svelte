@@ -8,5 +8,7 @@
 	class="w-1/7 aspect-square rounded-md border border-zinc-100 p-1 shadow-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-zinc-400"
 	class:opacity-50={!isInCurrentMonth}
 >
-	{date.getDate()}
+	<h1 class="text-2xl">
+		{date.getDate()}
+	</h1>
 </div>
