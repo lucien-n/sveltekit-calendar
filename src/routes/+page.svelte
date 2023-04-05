@@ -2,6 +2,6 @@
 	import Calendar from '$lib/components/Calendar.svelte';
 </script>
 
-<div>
+<div class="h-full w-full">
 	<Calendar year={new Date().getFullYear()} month={new Date().getMonth()} />
 </div>
