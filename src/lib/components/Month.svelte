@@ -26,25 +26,35 @@
 	}
 
 	function getDays() {
-		let days = [];
-		let monday = getMonday(year, month);
-		for (let i = 0; i < daysInMonth(year, monday.getMonth()) - monday.getDay(); i++) {
-			days.push(new Date(year, monday.getMonth(), i));
+		const days = [];
+		const firstDay = new Date(year, month, 1);
+		const lastDay = new Date(year, month + 1, 0);
+		const offset = firstDay.getDay() - 1 || 6;
+
+		for (let i = 1 - offset; i <= lastDay.getDate(); i++) {
+			const date = new Date(year, month, i);
+			const isInCurrentMonth = i > 0 && i <= lastDay.getDate();
+			days.push({ date, isInCurrentMonth });
 		}
-		for (let i = 0; i < daysInMonth(year, month); i++) {
-			days.push(new Date(year, month, i));
-		}
+
 		return days;
 	}
 </script>
 
-<section id="month-{year}-{month}" class="grid grid-flow-row grid-cols-7">
-	{#each daysOfTheWeek as day}
-		<div>
-			{day}
-		</div>
-	{/each}
-	{#each getDays() as date}
-		<Day {date} />
-	{/each}
+<section id="month-{year}-{month}" class="h-full w-full">
+	<div
+		id="days-{year}-{month}"
+		class="mx-auto grid w-full grid-flow-row grid-cols-7 gap-3 lg:w-2/3"
+	>
+		{#each daysOfTheWeek as day}
+			<div class="rounded-md border p-2 shadow-md">
+				<p class="text-center font-semibold">
+					{day}
+				</p>
+			</div>
+		{/each}
+		{#each getDays() as day}
+			<Day date={day.date} isInCurrentMonth={day.isInCurrentMonth} />
+		{/each}
+	</div>
 </section>
